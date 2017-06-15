@@ -7,7 +7,7 @@ public class FireItUp implements Queueable{
     
     public void execute(QueueableContext context) {
         
-        // How many seconds will pass between each call - can be simply specified in the class constructor above
+        // How many seconds will pass between each call - can be simply specified in the class constructor above vs hardcorded
         Long milliSeconds = 7000;
         Long timeDiff = 0;
         
@@ -18,7 +18,7 @@ public class FireItUp implements Queueable{
         }
         while(timeDiff <= milliSeconds);
         
-        // When job stops - can be simply specified in the class constructor above
+        // When job stops at 10th iteration for example - number can be simply specified in the class constructor above vs hardcorded
         if (i == 10) {
             // Fires the final API - passes a variable for example sake
             MyAPIclass.fireMyAPI(i);
