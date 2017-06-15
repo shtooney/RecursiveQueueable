@@ -1,3 +1,5 @@
+// This is a server-driven approach to continuously send API calls.
+
 public class FireItUp implements Queueable{
     
     private Integer i;
@@ -8,19 +10,20 @@ public class FireItUp implements Queueable{
     public void execute(QueueableContext context) {
         
         // How many seconds will pass between each call - can be simply specified in the class constructor above vs hardcorded
+        // 1000 milliseconds equate to 1 second
         Long milliSeconds = 7000;
         Long timeDiff = 0;
         
-        // This let's time (specified above) pass before proceeding to chained methods
+        // This let's time (specified above) pass before proceeding to do a chained job
         DateTime firstTime = System.now();
         do{
             timeDiff = System.now().getTime() - firstTime.getTime();
         }
         while(timeDiff <= milliSeconds);
         
-        // When job stops at 10th iteration for example - number can be simply specified in the class constructor above vs hardcorded
+        // When job stops at 10th iteration in this example - number can be simply specified in the class constructor above vs hardcorded
         if (i == 10) {
-            // Fires the final API - passes a variable for example sake
+            // Fires the final API - passes a variable for example-sake
             MyAPIclass.fireMyAPI(i);
         } else  {
             
