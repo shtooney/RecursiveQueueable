@@ -1,4 +1,4 @@
-// This is a server-driven approach to continuously send API calls (and passes incremented variable each time to API call methods)
+// This is a server-driven approach to continuously send API calls (& passes incremented variable each time to API call methods)
 
 public class FireItUp implements Queueable{
     
